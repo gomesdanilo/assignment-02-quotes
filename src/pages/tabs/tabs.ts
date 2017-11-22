@@ -4,14 +4,8 @@ import { LibraryPage } from '../library/library';
 
 //
 @Component({
-  //templateUrl: 'tabs.html'
   selector : 'tabs-page',
-  template : `
-  <ion-tabs>
-    <ion-tab [root]="tab1Root" tabTitle="Favourites" tabIcon="star"></ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Library" tabIcon="book"></ion-tab>
-    </ion-tabs>
-`
+  templateUrl : 'tabs.html'
 })
 export class TabsPage {
 
