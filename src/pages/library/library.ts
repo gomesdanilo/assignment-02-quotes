@@ -8,7 +8,12 @@ import quotes from '../../data/quotes'
   selector: 'page-library',
   templateUrl: 'library.html',
 })
-export class LibraryPage {
+export class LibraryPage implements OnInit {
 
+  quoteCollection : { category : string, quotes : Quote[], icon : string}[];
+
+  ngOnInit(){
+    this.quoteCollection = quotes;
+  }
 
 }
