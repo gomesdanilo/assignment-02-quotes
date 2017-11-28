@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, AlertController } from 'ionic-angular';
 import { Quote } from '../../data/quote.interface';
+import { QuotesService } from '../../services/quotes';
 
 @Component({
   selector: 'page-quotes',
@@ -11,7 +12,8 @@ export class QuotesPage implements OnInit {
 
   constructor(
     private navParams : NavParams,
-    private alertCtrl : AlertController){
+    private alertCtrl : AlertController,
+    private quotesService : QuotesService){
 
   }
 
@@ -25,7 +27,7 @@ export class QuotesPage implements OnInit {
   //  // Add elvis operator (?) in template to use this approate.
   // }
 
-  onAddToFavourite(selectorQuote : Quote){
+  onAddToFavourite(selectedQuote : Quote){
     const alert = this.alertCtrl.create({
       title : "Add Quote",
       subTitle : "Are you sure?",
@@ -35,6 +37,7 @@ export class QuotesPage implements OnInit {
           text : "Yes, go ahead",
           handler : () => {
             console.log("Ok")
+            this.quotesService.addQuoteToFavourites(selectedQuote)
           }
         },
         {
