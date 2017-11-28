@@ -20,13 +20,7 @@ export class QuotesPage implements OnInit {
   ngOnInit(){
     this.quoteGroup = this.navParams.data;
   }
-  // ionViewDidLoad() {
-  //   console.log("I'm alive!");
-  //   this.quoteGroup = this.navParams.data;
-  //   console.log(this.quoteGroup);
-  //  // Add elvis operator (?) in template to use this approate.
-  // }
-
+  
   onAddToFavourite(selectedQuote : Quote){
     const alert = this.alertCtrl.create({
       title : "Add Quote",
