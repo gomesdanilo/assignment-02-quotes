@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Quote } from '../../data/quote.interface';
 import { QuotesService } from '../../services/quotes';
 import { QuotePage } from '../quote/quote';
-import { ModalController } from 'ionic-angular';
+import {MenuController, ModalController} from 'ionic-angular';
 
 @Component({
   selector: 'page-favourites',
@@ -13,7 +13,8 @@ export class FavouritesPage {
   quotes : Quote[];
 
   constructor (private quotesService : QuotesService,
-               private modalCtrl : ModalController){}
+               private modalCtrl : ModalController,
+               private menuCtlr : MenuController){}
 
   ionViewWillEnter(){
     this.quotes = this.quotesService.getFavouriteQuotes();
@@ -36,6 +37,10 @@ export class FavouritesPage {
   removeQuote(quote : Quote){
     this.quotesService.removeQuoteFromFavourites(quote);
     this.quotes = this.quotesService.getFavouriteQuotes();
+  }
+
+  onOpenMenu(){
+    this.menuCtlr.open();
   }
 
 }
