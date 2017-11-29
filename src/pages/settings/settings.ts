@@ -14,4 +14,7 @@ export class SettingsPage {
     this.settingsService.setAlternativeBackground(event.checked);
   }
 
+  isAltBackgroundChecked(){
+    return this.settingsService.isAlternativeBackground();
+  }
 }
