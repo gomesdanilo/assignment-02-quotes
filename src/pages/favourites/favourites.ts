@@ -13,8 +13,7 @@ export class FavouritesPage {
   quotes : Quote[];
 
   constructor (private quotesService : QuotesService,
-               private modalCtrl : ModalController,
-               private menuCtlr : MenuController){}
+               private modalCtrl : ModalController){}
 
   ionViewWillEnter(){
     this.quotes = this.quotesService.getFavouriteQuotes();
@@ -38,9 +37,4 @@ export class FavouritesPage {
     this.quotesService.removeQuoteFromFavourites(quote);
     this.quotes = this.quotesService.getFavouriteQuotes();
   }
-
-  onOpenMenu(){
-    this.menuCtlr.open();
-  }
-
 }
