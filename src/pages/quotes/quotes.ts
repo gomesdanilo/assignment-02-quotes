@@ -14,14 +14,13 @@ export class QuotesPage implements OnInit {
     private navParams : NavParams,
     private alertCtrl : AlertController,
     private quotesService : QuotesService){
-
   }
 
   ngOnInit(){
     this.quoteGroup = this.navParams.data;
   }
-  
-  onAddToFavourite(selectedQuote : Quote){
+
+  onAddToFavourites(selectedQuote : Quote){
     const alert = this.alertCtrl.create({
       title : "Add Quote",
       subTitle : "Are you sure?",
@@ -30,21 +29,29 @@ export class QuotesPage implements OnInit {
         {
           text : "Yes, go ahead",
           handler : () => {
-            console.log("Ok")
-            this.quotesService.addQuoteToFavourites(selectedQuote)
+            console.log("Ok");
+            this.quotesService.addQuoteToFavourites(selectedQuote);
           }
         },
         {
           text : "No, I changed my mind",
           role : "cancel",
           handler : () => {
-            console.log("Cancel")
+            console.log("Cancel");
           }
         }
       ]
 
     });
     alert.present();
+  }
+
+  onRemoveFromFavourites(selectedQuote : Quote){
+    this.quotesService.removeQuoteFromFavourites(selectedQuote);
+  }
+
+  isFavourite(quote : Quote) {
+    return this.quotesService.isQuoteFavourite(quote);
   }
 
 }
