@@ -19,7 +19,11 @@ export class QuotePage {
   }
 
   onClose(){
-    this.viewCtrl.dismiss();
+    this.viewCtrl.dismiss(false);
+  }
+
+  onUnfavourite(){
+    this.viewCtrl.dismiss(true);
   }
 
 }

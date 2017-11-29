@@ -10,9 +10,10 @@ export class QuotesService {
   }
 
   removeQuoteFromFavourites(quote : Quote) {
-    const position = this.favouriteQuotes.findIndex((item) => {
-      return item.id = quote.id;
+    const position = this.favouriteQuotes.findIndex(value => {
+      return value.id == quote.id;
     });
+
     this.favouriteQuotes.splice(position, 1);
   }
 
