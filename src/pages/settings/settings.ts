@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, Toggle} from 'ionic-angular';
+import {Toggle} from 'ionic-angular';
+import {SettingsService} from "../../services/settings";
 
 @Component({
   selector: 'page-settings',
@@ -7,8 +8,10 @@ import {IonicPage, NavController, NavParams, Toggle} from 'ionic-angular';
 })
 export class SettingsPage {
 
+  constructor(private settingsService : SettingsService){}
+
   onToggle(event : Toggle){
-    
+    this.settingsService.setAlternativeBackground(event.checked);
   }
 
 }
