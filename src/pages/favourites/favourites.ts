@@ -42,4 +42,8 @@ export class FavouritesPage {
   getBackground(){
     return this.settingsService.isAlternativeBackground() ? "altBackground" : "quoteBackground";
   }
+
+  isAltBackground(){
+    return this.settingsService.isAlternativeBackground();
+  }
 }
